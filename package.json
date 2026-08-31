@@ -1,0 +1,22 @@
+﻿{
+  "name": "gigsecure",
+  "version": "1.0.0",
+  "description": "GigSecure - Cyber Security & Fraud Protection System for Gig Workers (Bhavna Trust Degree College Project by Ashab ul haq Ansari)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "gig-workers",
+    "fraud-protection",
+    "phishing-detector"
+  ],
+  "author": "Ashab ul haq Ansari",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}
