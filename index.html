@@ -13,23 +13,23 @@
   </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-slate-955 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
+<body class="bg-[#070b14] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
 
   <!-- TOP EMERGENCY & COLLEGE BANNER -->
-  <div class="bg-gradient-to-r from-cyan-955 via-slate-900 to-blue-955 border-b border-cyan-500/20 py-1.5 px-4 text-xs">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2 text-slate-300">
+  <div class="bg-gradient-to-r from-cyan-950/90 via-slate-900 to-blue-950/90 border-b border-cyan-500/20 py-2 px-3 sm:px-4 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2 text-slate-300">
         <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-        <span class="font-medium">Bhavna Trust Degree College ‪ B.Sc. Computer Science Final Year Project</span>
-        <span class="hidden sm:inline text-slate-500">ࠨ</span>
-        <span class="hidden sm:inline text-cyan-400 font-semibold">By: Ashab ul haq Ansari (2026–2027)</span>
+        <span class="font-semibold text-slate-200">Bhavna Trust Degree College • B.Sc. CS Final Year Project</span>
+        <span class="hidden md:inline text-slate-500">•</span>
+        <span class="text-cyan-400 font-bold">Author: Ashab ul haq Ansari (2026–2027)</span>
       </div>
-      <div class="flex items-center gap-4">
-        <a href="tel:1930" class="flex items-center gap-1.5 text-rose-400 hover:text-rose-300 font-bold transition-colors">
-          <span>🚪 National Cyber Helpline: <span class="underline">1930</span></span>
+      <div class="flex items-center justify-center gap-3 shrink-0">
+        <a href="tel:1930" class="flex items-center gap-1 text-rose-400 hover:text-rose-300 font-bold transition-colors">
+          <span>🚨 Cyber Helpline: <span class="underline">1930</span></span>
         </a>
         <span class="text-slate-600">|</span>
-        <a href="https://cybercrime.gov.in" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors hidden md:inline">
+        <a href="https://cybercrime.gov.in" target="_blank" class="text-slate-400 hover:text-cyan-400 transition-colors">
           cybercrime.gov.in
         </a>
       </div>
@@ -37,139 +37,415 @@
   </div>
 
   <!-- MAIN HEADER -->
-  <header class="sticky top-0 z-40 bg-slate-955/85 backdrop-blur-md border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+  <header class="sticky top-0 z-40 bg-[#070b14]/95 backdrop-blur-md border-b border-slate-800 shadow-lg">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
       
-      <div class="flex items-center gap-3 cursor-pointer" onclick="window.App.switchTab('dashboard')">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-0.5 shadow-lg shadow-cyan-500/20 flex items-center justify-center">
-          <div class="w-full h-full bg-slate-955 rounded-[10px] flex items-center justify-center text-cyan-400 font-black text-xl">
-            🙲 
+      <!-- Logo & Title -->
+      <div class="flex items-center gap-2.5 sm:gap-3 cursor-pointer" onclick="if(window.Auth && window.Auth.isLoggedIn()){ window.App.switchTab('dashboard'); } else { window.App.showGatewayView(); }">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 p-0.5 shadow-lg shadow-cyan-500/20 flex items-center justify-center shrink-0">
+          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-cyan-400 font-black text-lg sm:text-xl">
+            🛡️
           </div>
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-xl font-extrabold tracking-tight text-white" data-i18n="appName">GigSecure</span>
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-full">v1.0 Pro</span>
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white" data-i18n="appName">GigSecure</span>
+            <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 rounded-full">v1.0 Pro</span>
           </div>
-          <p class="text-[11px] text-slate-400 hidden sm:block" data-i18n="appTagline">Cyber Security & Fraud Protection System for Gig Workers</p>
+          <p class="text-[10px] sm:text-[11px] text-slate-400 hidden xs:block" data-i18n="appTagline">Cyber Security & Fraud Protection for Gig Workers</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-3">
-        <div class="relative">
-          <select id="langSelector" onchange="window.I18N.setLanguage(this.value)" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-cyan-500 transition-colors">
-            <option value="en">🌐 English</option>
-            <option value="hi">🇮🇳 हिनॗदी, (Hindi)</option>
-            <option value="mr">🗩 मराठ़, (Marathi)</option>
-            <option value="ta">🌴 ��எ௿வ஼, (Tamil)</option>
-          </select>
+      <!-- Right Controls: Language Selector, User Profile & Log Out -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <select id="langSelector" onchange="window.I18N.setLanguage(this.value)" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-cyan-500 transition-colors">
+          <option value="en">🌐 English</option>
+          <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+          <option value="mr">🚩 मराठी (Marathi)</option>
+          <option value="ta">🏛️ தமிழ் (Tamil)</option>
+        </select>
+
+        <!-- User Profile Bar -->
+        <div id="userProfileBar" class="hidden flex items-center gap-2">
+          <div class="flex items-center gap-2 bg-slate-900/90 border border-slate-700/80 px-2.5 sm:px-3 py-1.5 rounded-xl">
+            <div class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs">
+              👤
+            </div>
+            <div class="text-left hidden sm:block">
+              <div class="text-xs font-bold text-slate-200 leading-tight truncate max-w-[120px]" id="currentUserDisplay">Rahul Sharma</div>
+              <span id="userRoleBadge" class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">WORKER</span>
+            </div>
+          </div>
+
+          <button onclick="window.App.doLogout()" title="Log out from session" 
+                  class="px-2.5 sm:px-3 py-1.5 bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 text-xs font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer">
+            <span>🚪</span> <span class="hidden xs:inline">Log Out</span>
+          </button>
         </div>
 
-        <div class="hidden sm:flex items-center bg-slate-900 border border-slate-800 rounded-lg -0.5">
-          <button onclick="window.Auth.switchRole('worker'); window.App.updateUserUI(); window.App.renderDashboardStats(); window.App.showToast('Switched to Gig Worker Mode', 'info')" 
-                  class="px-2.5 py-1 text-xs font-semibold rounded text-slate-300 hover:text-white transition-colors">
-            🗛 Worker
-          </button>
-          <button onclick="window.Auth.switchRole('admin'); window.App.updateUserUI(); window.App.renderDashboardStats(); window.App.showToast('Switched to Admin Mode (Ashab ul haq Ansari)', 'info')" 
-                  class="px-2.5 py-1 text-xs font-semibold rounded bg-purple-600/30 text-purple-300 border border-purple-500/30 transition-colors">
-            👑 Admin
-          </button>
-        </div>
-
-        <div class="flex items-center gap-2.5 bg-slate-900/90 border border-slate-800 px-3 py-1.5 rounded-xl cursor-pointer hover:border-slate-700 transition-all" onclick="window.App.openAuthModal('login')">
-          <div class="w-7 h-7 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center font-bold text-xs">
-            🐤
-          </div>
-          <div class="text-left">
-            <div class="text-xs font-bold text-slate-200" id="currentUserDisplay">Rahul Sharma</div>
-            <span id="userRoleBadge" class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">WORKER</span>
-          </div>
-        </div>
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 overflow-x-auto no-scrollbar border-t border-slate-800/80">
-      <nav class="flex space-x-1 py-1 text-xs font-semibold whitespace-nowrap">
-        <button onclick="window.App.switchTab('dashboard')" data-tab="dashboard" class="nav-btn px-3.5 py-2 rounded-lg text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 transition-all flex items-center gap-1.5">
-          <span>🔑</span> <span data-i18n="dashboard">Dashboard</span>
+    <!-- MAIN NAVIGATION TABS -->
+    <div id="mainNavBar" class="hidden max-w-7xl mx-auto px-2 sm:px-6 overflow-x-auto no-scrollbar border-t border-slate-800/80">
+      <nav class="flex space-x-1 py-1.5 text-xs font-semibold whitespace-nowrap">
+        <button onclick="window.App.switchTab('dashboard')" data-tab="dashboard" class="nav-btn px-3 py-2 rounded-lg text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>📊</span> <span data-i18n="dashboard">Dashboard</span>
         </button>
-        <button onclick="window.App.switchTab('url-checker')" data-tab="url-checker" class="nav-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5">
+        <button onclick="window.App.switchTab('url-checker')" data-tab="url-checker" class="nav-btn px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
           <span>🔗</span> <span data-i18n="urlChecker">URL Scanner</span>
         </button>
-        <button onclick="window.App.switchTab('msg-analyzer')" data-tab="msg-analyzer" class="nav-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5">
-          <span>💦</span> <span data-i18n="msgAnalyzer">Message Analyzer</span>
+        <button onclick="window.App.switchTab('msg-analyzer')" data-tab="msg-analyzer" class="nav-btn px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>💬</span> <span data-i18n="msgAnalyzer">Message Analyzer</span>
         </button>
-        <button onclick="window.App.switchTab('threats')" data-tab="threats" class="nav-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5">
-          <span>🔄</span> <span data-i18n="threatDb">Threat Intelligence</span>
+        <button onclick="window.App.switchTab('threats')" data-tab="threats" class="nav-btn px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>🎯</span> <span data-i18n="threatDb">Threat Intelligence</span>
         </button>
-        <button onclick="window.App.switchTab('incidents')" data-tab="incidents" class="nav-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5">
-          <span>📓</span> <span data-i18n="incidents">Report & History</span>
+        <button onclick="window.App.switchTab('incidents')" data-tab="incidents" class="nav-btn px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>📝</span> <span data-i18n="incidents">Report & History</span>
         </button>
-        <button onclick="window.App.switchTab('security-tips')" data-tab="security-tips" class="nav-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5">
-          <span>💑</span> <span data-i18n="securityTips">Security Hub</span>
+        <button onclick="window.App.switchTab('security-tips')" data-tab="security-tips" class="nav-btn px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>💡</span> <span data-i18n="securityTips">Security Hub</span>
         </button>
-        <button onclick="window.App.switchTab('quiz')" data-tab="quiz" class="nav-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5">
-          <span>🌯</span> <span data-i18n="scamQuiz">Scam Simulator</span>
+        <button onclick="window.App.switchTab('quiz')" data-tab="quiz" class="nav-btn px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>🎮</span> <span data-i18n="scamQuiz">Scam Simulator</span>
         </button>
-        <button onclick="window.App.switchTab('test-suite')" data-tab="test-suite" class="nav-btn px-3.5 py-2 rounded-lg text-amber-400/90 hover:text-amber-300 border border-transparent transition-all flex items-center gap-1.5">
-          <span>🧩</span> <span data-i18n="testSuite">Test Suite (TC01-08)</span>
+        <button onclick="window.App.switchTab('test-suite')" data-tab="test-suite" class="nav-btn px-3 py-2 rounded-lg text-amber-400/90 hover:text-amber-300 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>🧪</span> <span data-i18n="testSuite">Test Suite (TC01-08)</span>
         </button>
-        <button onclick="window.App.switchTab('admin')" data-tab="admin" class="nav-btn px-3.5 py-2 rounded-lg text-purple-400 hover:text-purple-300 border border-transparent transition-all flex items-center gap-1.5">
-          <span>👑></span> <span data-i18n="adminPortal">Admin Portal</span>
+        <button onclick="window.App.switchTab('admin')" data-tab="admin" class="nav-btn px-3 py-2 rounded-lg text-purple-400 hover:text-purple-300 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>👑</span> <span data-i18n="adminPortal">Admin Portal</span>
         </button>
-        <button onclick="window.App.switchTab('docs')" data-tab="docs" class="nav-btn px-3.5 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5">
-          <span>👐</span> <span data-i18n="umlDocs">UML &\npArchitecture</span>
+        <button onclick="window.App.switchTab('docs')" data-tab="docs" class="nav-btn px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 border border-transparent transition-all flex items-center gap-1.5 cursor-pointer">
+          <span>📖</span> <span data-i18n="umlDocs">UML & Architecture</span>
         </button>
       </nav>
     </div>
   </header>
+  <!-- ========================================================================= -->
+  <!-- VIEW 1: AUTHENTICATION & LOGIN GATEWAY (SHOWN FIRST ON VISIT / LOGOUT)     -->
+  <!-- ========================================================================= -->
+  <div id="view-auth-gateway" class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 fade-in">
+    
+    <!-- Welcome Header Banner -->
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-4">
+        <span>🛡️ Final Year B.Sc. Computer Science Project</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-3">
+        Cyber Security & Fraud Protection System for Gig Workers
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Protecting India's delivery riders, drivers, and freelancers from UPI QR code scams, phishing links, malicious APKs, and fake support calls.
+      </p>
+      <div class="mt-3 text-xs text-cyan-400/90 font-medium">
+        Developed by <strong class="text-white">Ashab ul haq Ansari</strong> • Bhavna Trust Degree College (2026–2027)
+      </div>
+    </div>
 
-  <!-- MAIN CONTAINER -->
-  <main class="flex-1 max-w-7xl"w-full mx-auto px-4 sm:px-6 py-6">
-
-    <!-- TAB 1: DASHBOARD (FR3) -->
-    <section id="tab-dashboard" class="tab-content fade-in space-y-6">
+    <!-- Gateway Card Container -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
       
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-cyan-955/50 border border-cyan-500/30 p-6 sm:p-8 cyber-glow-cyan shadow-2xl">
+      <!-- Left Column: 1-Click Demo Logins & Flow Overview -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <!-- 1-Click Quick Demo Login Card -->
+        <div class="cyber-card p-5 sm:p-6 border-cyan-500/30 bg-slate-900/90">
+          <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">
+            <span>⚡ Instant Demo Access</span>
+          </div>
+          <h3 class="text-lg font-extrabold text-white mb-1">1-Click Fast Login</h3>
+          <p class="text-xs text-slate-400 mb-4">Click below to immediately evaluate the system as a Worker or Administrator:</p>
+
+          <div class="space-y-3">
+            <!-- 1-Click Worker -->
+            <button onclick="window.App.doQuickLogin('worker')" 
+                    class="w-full p-3.5 rounded-xl bg-gradient-to-r from-slate-900 to-slate-800 hover:from-cyan-950/60 hover:to-blue-950/60 border border-slate-700 hover:border-cyan-500/60 text-left transition-all flex items-center justify-between group cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center text-lg shrink-0 font-bold group-hover:scale-105 transition-transform">
+                  🛵
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-cyan-300">Login as Gig Worker</div>
+                  <div class="text-[11px] text-slate-400">Rahul Sharma (Zomato / Swiggy)</div>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-cyan-400 group-hover:translate-x-1 transition-transform">Enter →</span>
+            </button>
+
+            <!-- 1-Click Admin -->
+            <button onclick="window.App.doQuickLogin('admin')" 
+                    class="w-full p-3.5 rounded-xl bg-gradient-to-r from-slate-900 to-slate-800 hover:from-purple-950/60 hover:to-indigo-950/60 border border-slate-700 hover:border-purple-500/60 text-left transition-all flex items-center justify-between group cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/30 flex items-center justify-center text-lg shrink-0 font-bold group-hover:scale-105 transition-transform">
+                  👑
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white group-hover:text-purple-300">Login as Chief Administrator</div>
+                  <div class="text-[11px] text-slate-400">Ashab ul haq Ansari (Admin Desk)</div>
+                </div>
+              </div>
+              <span class="text-xs font-bold text-purple-400 group-hover:translate-x-1 transition-transform">Enter →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5-Step Flow Explanation Card -->
+        <div class="cyber-card p-5 bg-slate-900/60">
+          <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">📌 System User Flow</div>
+          <ol class="text-xs text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+            <li><strong>Sign In / Register:</strong> Create a new account or use 1-click demo.</li>
+            <li><strong>Access Dashboard:</strong> View 96% safety index & real-time fraud alerts.</li>
+            <li><strong>Scan Threats:</strong> Check URLs and SMS with AI/NLP detection.</li>
+            <li><strong>Report Scams:</strong> Log incidents to alert the community.</li>
+            <li><strong>Earn Certificate:</strong> Complete the scam simulator quiz.</li>
+          </ol>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Login & Register Form -->
+      <div class="lg:col-span-7 cyber-card p-6 sm:p-8 bg-slate-900/90 border-slate-700/80">
+        
+        <!-- Toggle Tabs: Sign In vs Register -->
+        <div class="flex items-center border-b border-slate-800 mb-6">
+          <button id="gateBtnLogin" onclick="
+            document.getElementById('gateFormLogin').classList.remove('hidden');
+            document.getElementById('gateFormRegister').classList.add('hidden');
+            this.className='pb-3 px-4 font-extrabold text-cyan-400 border-b-2 border-cyan-400 text-sm cursor-pointer';
+            document.getElementById('gateBtnRegister').className='pb-3 px-4 text-slate-400 hover:text-white text-sm font-semibold cursor-pointer';
+          " class="pb-3 px-4 font-extrabold text-cyan-400 border-b-2 border-cyan-400 text-sm cursor-pointer">
+            🔐 User Sign In
+          </button>
+          <button id="gateBtnRegister" onclick="
+            document.getElementById('gateFormLogin').classList.add('hidden');
+            document.getElementById('gateFormRegister').classList.remove('hidden');
+            this.className='pb-3 px-4 font-extrabold text-cyan-400 border-b-2 border-cyan-400 text-sm cursor-pointer';
+            document.getElementById('gateBtnLogin').className='pb-3 px-4 text-slate-400 hover:text-white text-sm font-semibold cursor-pointer';
+          " class="pb-3 px-4 text-slate-400 hover:text-white text-sm font-semibold cursor-pointer">
+            📝 Register New Account
+          </button>
+        </div>
+
+        <!-- FORM A: USER SIGN IN -->
+        <div id="gateFormLogin" class="space-y-4 text-xs">
+          <div>
+            <h4 class="text-base sm:text-lg font-bold text-white mb-0.5">Sign In with Email & Password</h4>
+            <p class="text-slate-400 mb-4">Enter your registered gig partner credentials to unlock all scanner features.</p>
+          </div>
+
+          <form onsubmit="
+            event.preventDefault();
+            const email = document.getElementById('gateInputEmail').value;
+            const pass = document.getElementById('gateInputPass').value;
+            window.App.doLogin(email, pass);
+          " class="space-y-4">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1.5">Email Address</label>
+              <input type="email" id="gateInputEmail" required value="rahul.rider@gmail.com" 
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-cyan-500 font-mono text-xs" />
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1.5">Password</label>
+              <input type="password" id="gateInputPass" required value="password123" 
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-cyan-500 font-mono text-xs" />
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-xl shadow-lg shadow-cyan-500/25 transition-all text-xs cursor-pointer flex items-center justify-center gap-2">
+              <span>🔐 Sign In to GigSecure</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- FORM B: REGISTER NEW ACCOUNT -->
+        <div id="gateFormRegister" class="hidden space-y-4 text-xs">
+          <div>
+            <h4 class="text-base sm:text-lg font-bold text-white mb-0.5">Register New Gig Worker Account</h4>
+            <p class="text-slate-400 mb-4">Create your personalized cyber defense profile in 10 seconds.</p>
+          </div>
+
+          <form onsubmit="
+            event.preventDefault();
+            const name = document.getElementById('gateRegName').value;
+            const email = document.getElementById('gateRegEmail').value;
+            const password = document.getElementById('gateRegPass').value;
+            const platform = document.getElementById('gateRegPlatform').value;
+            window.App.doRegister({ name, email, password, platform, role: 'worker' });
+          " class="space-y-3.5">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Full Name</label>
+              <input type="text" id="gateRegName" required placeholder="e.g. Ramesh Kumar" 
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500 text-xs" />
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Email Address</label>
+              <input type="email" id="gateRegEmail" required placeholder="ramesh@gmail.com" 
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500 font-mono text-xs" />
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Password</label>
+              <input type="password" id="gateRegPass" required placeholder="Create a password" 
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500 font-mono text-xs" />
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1">Primary Gig Platform</label>
+              <select id="gateRegPlatform" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500 text-xs">
+                <option value="Zomato Delivery Partner">Zomato Delivery Partner</option>
+                <option value="Swiggy Delivery Partner">Swiggy Delivery Partner</option>
+                <option value="Uber Driver Partner">Uber Driver Partner</option>
+                <option value="Ola Cab Driver">Ola Cab Driver</option>
+                <option value="Zepto / Blinkit Rider">Zepto / Blinkit Quick Commerce</option>
+                <option value="Dunzo / Porter Logistics">Dunzo / Porter Logistics</option>
+                <option value="Freelancer / General">Freelancer / General</option>
+              </select>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 text-white font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition-all text-xs cursor-pointer flex items-center justify-center gap-2">
+              <span>📝 Complete Registration</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- ========================================================================= -->
+  <!-- VIEW 2: MAIN APPLICATION & ALL 10 MODULES (SHOWN WHEN LOGGED IN)          -->
+  <!-- ========================================================================= -->
+  <main id="view-app-main" class="hidden flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 py-6 fade-in">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: DASHBOARD (FR3) -->
+    <!-- ========================================================================= -->
+    <section id="tab-dashboard" class="tab-content space-y-6">
+      
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-cyan-950/50 border border-cyan-500/30 p-5 sm:p-8 cyber-glow-cyan shadow-2xl">
         <div class="max-w-3xl">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-3">
-            <span>🙲 Active Worker Shield Active</span>
+            <span>🛡️ Active Worker Shield Active</span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug" data-i18n="quickScanTitle">
+          <h2 class="text-xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug" data-i18n="quickScanTitle">
             Instant Cybersecurity Threat Scanner
           </h2>
-          <p class="text-sm text-slate-300 mt-2 leading-relaxed" data-i18n="quickScanDesc">
+          <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed" data-i18n="quickScanDesc">
             Check suspicious URLs, fake customer payment links, QR code requests, or urgent SMS deactivation threats before taking action.
           </p>
 
-          <div class="flex flex-wrap items-center gap-3 mt-6">
-            <button onclick="window.App.switchTab('url-checker')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2">
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 mt-6">
+            <button onclick="window.App.switchTab('url-checker')" class="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white text-xs font-bold shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2 cursor-pointer">
               <span>🔗</span> <span data-i18n="scanUrlBtn">Scan Suspicious URL</span>
             </button>
-            <button onclick="window.App.switchTab('msg-analyzer')" class="px-5 py-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold transition-all flex items-center gap-2">
-              <span>💦</span> <span data-i18n="scanMsgBtn">Scan Fraud SMS / WhatsApp</span>
+            <button onclick="window.App.switchTab('msg-analyzer')" class="px-4 sm:px-5 py-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold transition-all flex items-center gap-2 cursor-pointer">
+              <span>💬</span> <span data-i18n="scanMsgBtn">Scan Fraud SMS / WhatsApp</span>
             </button>
-            <button onclick="window.App.switchTab('incidents')" class="px-5 py-2.5 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 text-xs font-bold transition-all flex items-center gap-2">
-              <span>🚪</span> <span>Report Scam Incident</span>
+            <button onclick="window.App.switchTab('incidents')" class="px-4 sm:px-5 py-2.5 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 text-rose-300 border border-rose-500/30 text-xs font-bold transition-all flex items-center gap-2 cursor-pointer">
+              <span>🚨</span> <span>Report Scam Incident</span>
+            </button>
+            <button onclick="window.App.switchTab('quiz')" class="px-4 sm:px-5 py-2.5 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 border border-amber-500/30 text-xs font-bold transition-all flex items-center gap-2 cursor-pointer">
+              <span>🎮</span> <span>Take Safety Quiz</span>
             </button>
           </div>
         </div>
       </div>
 
+      <!-- Quick Stats Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="cyber-card rounded-2xl p-5 relative overflow-hidden">
+        <!-- Safety Score Card -->
+        <div class="cyber-card p-5 relative overflow-hidden bg-slate-900/80">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="safetyScore">Safety Score</span>
-            <span class="text-xs text-emerald-400 font-bold">‪ High Protection</span>
+            <span class="text-xs text-emerald-400 font-bold">● High Protection</span>
           </div>
           <div class="flex items-baseline gap-2 mb-2">
-            <span class="text-3xl font-extrabold text-white" id="statScfetyScore">96%</span>
+            <span class="text-3xl font-extrabold text-white" id="statSafetyScore">96%</span>
             <span class="text-xs text-slate-400">Security Index</span>
           </div>
-          <div class=�ܵ�ձ�����ͱ�є�������ȁɽչ�����ձ���ٕə��ܵ��������(�������������؁�����􉉜��Ʌ����еѼ�ȁ�ɽ���典�����Ѽ����Ʌ����������ձ��ɽչ�����ձ���Ʌ�ͥѥ���������Ʌѥ������������х�M��ɕ	�Ȉ���屔�ݥ�Ѡ��ؔ��𽑥��(����������𽑥��(��������𽑥��((���������؁������剕ȵ��ɐ�ɽչ�����ᰁ��Ԉ�(�����������؁�����􉙱����ѕ�̵���ѕȁ���ѥ�䵉��ݕ������̈�(������������������������ѕ�е�́���е�����ѕ�еͱ�є���������ɍ�͔��Ʌ������ݥ��Ȉ�Q�х��M���́Iո������(��������������������������ĸԁɽչ�����������典��������ѕ�е�典�����ѕ�е�̈�)0������(����������𽑥��(�����������؁������ѕ�д�ᰁ���е���Ʌ�����ѕ�еݡ�є������х�Q�х�����̈���𽑥��(�����������؁������ѕ�е�́ѕ�еͱ�є������дĈ�UI1̀��5��ͅ��́����镐𽑥��(��������𽑥��((���������؁������剕ȵ��ɐ�ɽչ�����ᰁ��Ԉ�(�����������؁�����􉙱����ѕ�̵���ѕȁ���ѥ�䵉��ݕ������̈�(������������������������ѕ�е�́���е�����ѕ�еͱ�є���������ɍ�͔��Ʌ������ݥ��Ȉ�Q�ɕ�Ё�%�����ѽ��������(��������������������������ĸԁɽչ����������ɽ͔��������ѕ�еɽ͔�����ѕ�е�̈��~f�������(����������𽑥��(�����������؁������ѕ�д�ᰁ���е���Ʌ�����ѕ�еɽ͔����������х�Q�ɕ���%���ѥ�������𽑥��(�����������؁������ѕ�е�́ѕ�еͱ�є������дĈ��ѥٔ�A��͡������EH�Q�ɕ���𽑥��(��������𽑥��((���������؁������剕ȵ��ɐ�ɽչ�����ᰁ��Ԉ�(�����������؁�����􉙱����ѕ�̵���ѕȁ���ѥ�䵉��ݕ������̈�(������������������������ѕ�е�́���е�����ѕ�еͱ�є���������ɍ�͔��Ʌ������ݥ��Ȉ����չ���%��������������(��������������������������ĸԁɽչ��������������ȴ�������ѕ�е����ȴ����ѕ�е�̈��~N,������(����������𽑥��(�����������؁������ѕ�д�ᰁ���е���Ʌ�����ѕ�е����ȴ���������х��ѥٕ%�������̈��𽑥��(�����������؁������ѕ�е�́ѕ�еͱ�є������дĈ�QɅ�������U���ȁI�٥��𽑥��(��������𽑥��(������𽑥��((�������؁������ɥ���ɥ�����̴ā���ɥ�����̴�ȁ����؈�(���������؁�����􉱩���������܁�������Ј�(�����������؁�����􉙱����ѕ�̵���ѕȁ���ѥ�䵉��ݕ����(�������������؁�����􉙱����ѕ�̵���ѕȁ����Ȉ�(��������������������������ܴȸԁ��ȸԁɽչ�����ձ�����ɽ͔����������є��ձ͔��������(���������������́������ѕ�еʹ����е�����ѕ�еݡ�є�����ɍ�͔��Ʌ������ݥ��Ȉ���ф�����ɕ��������̈�1�ٔ�Q�ɕ�Ё�٥ͽɥ�����(������������𽑥��(������������������������ѕ�еl����t�ѕ�е�典��������е������U���ѕ��I����Q���������(����������𽑥��(�����������؁�������������̈���􉱥ٕ�������х���Ȉ�𽑥��(��������𽑥��((���������؁�����􉱜鍽�������ԁ�������Ј�(�����������؁�����􉙱����ѕ�̵���ѕȁ���ѥ�䵉��ݕ����(�������������́������ѕ�еʹ����е�����ѕ�еݡ�є�����ɍ�͔��Ʌ������ݥ��Ȉ���ф�����ɕ��������̈�I����ЁM���ɥ����������(���������������ѽ����������ݥ���ܹ����ݥэ�Q�����ɰ�������Ȝ���������ѕ�е�́ѕ�е�典�������ٕ��չ��ɱ�����9�܁M��������ѽ��(����������𽑥��(�����������؁�������������ȸԈ����ɕ���������1��Ј�𽑥��(�����������؁��������ԁɽչ�����ᰁ����Ʌ����еѼ��ȁ�ɽ��ɽ͔���Լ���٥��ͱ�є�����Ѽ�ͱ�є�������ɑ�ȁ��ɑ�ȵɽ͔���������(�������������؁�����􉙱����ѕ�̵���ѕȁ����ȁѕ�еɽ͔��������е�����ѕ�е�́���Ȉ�(���������������������j���<���ɅՑ����ȁ���������	���1����������(������������𽑥��(������������񽰁������ѕ�е�́ѕ�еͱ�є������������ĸԁ���е�����������е��ͥ�����������ɕ��ᕐ��(�������������������ɽ���ɕ�锁UA$����ɐ����ɽ����������ȁ�������������ͅ����UA$�𽱤�(�������������������ɽ���I����ЁѼ���������ɽ��������ѡ����ѥ������ɅՐ���ѱ����ݥѡ���ȁ����̸𽱤�(�������������������ɽ���������A���ݽɐ����ɽ����I�͕Ё��ȁ��������ٕ�䁅�������ݽɐ�𽱤�(������������𽽰�(����������𽑥��(��������𽑥��(������𽑥��(�����͕�ѥ��
+          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-cyan-400 to-emerald-400 h-full rounded-full transition-all duration-500" id="statScoreBar" style="width: 96%"></div>
+          </div>
+        </div>
+
+        <!-- Total Scans Card -->
+        <div class="cyber-card p-5 bg-slate-900/80">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Scans Run</span>
+            <span class="p-1.5 rounded-lg bg-cyan-500/10 text-cyan-400 text-xs">🔍</span>
+          </div>
+          <div class="text-3xl font-extrabold text-white" id="statTotalChecks">14</div>
+          <div class="text-xs text-slate-400 mt-1">URLs & Messages Analyzed</div>
+        </div>
+
+        <!-- Threats In DB Card -->
+        <div class="cyber-card p-5 bg-slate-900/80">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Threat DB Indicators</span>
+            <span class="p-1.5 rounded-lg bg-rose-500/10 text-rose-400 text-xs">🛑</span>
+          </div>
+          <div class="text-3xl font-extrabold text-rose-400" id="statThreatsIdentified">6</div>
+          <div class="text-xs text-slate-400 mt-1">Active Phishing & QR Threats</div>
+        </div>
+
+        <!-- Community Incidents Card -->
+        <div class="cyber-card p-5 bg-slate-900/80">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Community Incidents</span>
+            <span class="p-1.5 rounded-lg bg-amber-500/10 text-amber-400 text-xs">📋</span>
+          </div>
+          <div class="text-3xl font-extrabold text-amber-300" id="statActiveIncidents">3</div>
+          <div class="text-xs text-slate-400 mt-1">Tracked & Under Review</div>
+        </div>
+      </div>
+
+      <!-- Live Advisories & Recent Checks Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Live Advisories Column (FR7) -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider" data-i18n="recentAlerts">Live Threat Advisories</h3>
+            </div>
+            <span class="text-[11px] text-cyan-400 font-mono">Updated Real-Time</span>
+          </div>
+          <div class="space-y-3" id="liveAlertsContainer"></div>
+        </div>
+
+        <!-- Recent Checks Column -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider" data-i18n="recentChecks">Recent Security Checks</h3>
+            <button onclick="window.App.switchTab('url-checker')" class="text-xs text-cyan-400 hover:underline cursor-pointer">New Scan +</button>
+          </div>
+          <div class="space-y-2.5" id="recentChecksList"></div>
+
+          <!-- Emergency Action Box -->
+          <div class="p-5 rounded-2xl bg-gradient-to-br from-rose-950/40 via-slate-900 to-slate-900 border border-rose-500/30">
+            <div class="flex items-center gap-2 text-rose-400 font-bold text-xs mb-2">
+              <span>⚠️ Defrauded or Clicked a Bad Link?</span>
+            </div>
+            <ol class="text-xs text-slate-300 space-y-1.5 list-decimal list-inside leading-relaxed">
+              <li><strong>Freeze UPI / Card:</strong> Call your bank app & disable UPI.</li>
+              <li><strong>Report to 1930:</strong> Call the national fraud hotline within 2 hours.</li>
+              <li><strong>Change Password:</strong> Reset your gig delivery app password.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
     <!-- TAB 2: URL SCANNER (FR4, FR6) -->
-    <section id="tab-url-checker" class="tab-content fade-in hidden space-y-6">
-      <div class="cyber-card rounded-3xl p-6 sm:p-8">
+    <!-- ========================================================================= -->
+    <section id="tab-url-checker" class="tab-content hidden space-y-6">
+      <div class="cyber-card p-5 sm:p-8 bg-slate-900/90">
         <div class="max-w-2xl mb-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-2">
             <span>FR4 & FR6 Heuristic Engine</span>
@@ -186,25 +462,26 @@
               <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400">🔗</span>
               <input type="text" id="urlCheckerInput" 
                      placeholder="Paste suspicious website link (e.g., http://zomato-partner-bonus.xyz)" 
-                     class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all font-mono" />
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white focus:outline-none focus:border-cyan-500 font-mono" />
             </div>
-            <button type="submit" class="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 shrink-0">
-              <span>�4 Scan URL</span>
+            <button type="submit" class="px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer">
+              <span>🔍 Scan URL</span>
             </button>
           </div>
 
+          <!-- Quick Test Samples -->
           <div class="flex flex-wrap items-center gap-2 text-xs text-slate-400">
             <span class="font-semibold text-slate-300">Quick Test Samples:</span>
-            <button type="button" data-url-preset="http://zomato-partner-bonus.xyz/login" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-rose-400 border border-rose-500/20 font-mono transition-colors">
+            <button type="button" data-url-preset="http://zomato-partner-bonus.xyz/login" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-400 border border-rose-500/30 font-mono transition-colors cursor-pointer">
               zomato-partner-bonus.xyz (High Risk)
             </button>
-            <button type="button" data-url-preset="http://swiggy-orders-refund.net" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/20 font-mono transition-colors">
+            <button type="button" data-url-preset="http://swiggy-orders-refund.net" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-500/30 font-mono transition-colors cursor-pointer">
               swiggy-orders-refund.net (Suspicious)
             </button>
-            <button type="button" data-url-preset="http://192.168.1.10/otp-login" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-rose-400 border border-rose-500/20 font-mono transition-colors">
+            <button type="button" data-url-preset="http://192.168.1.10/otp-login" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-400 border border-rose-500/30 font-mono transition-colors cursor-pointer">
               192.168.1.10/otp-login (IP Lure)
             </button>
-            <button type="button" data-url-preset="https://www.zomato.com/partner" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/20 font-mono transition-colors">
+            <button type="button" data-url-preset="https://www.zomato.com/partner" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 font-mono transition-colors cursor-pointer">
               zomato.com/partner (Safe)
             </button>
           </div>
@@ -214,14 +491,16 @@
       </div>
     </section>
 
+    <!-- ========================================================================= -->
     <!-- TAB 3: MESSAGE ANALYZER (FR5, FR6) -->
-    <section id="tab-msg-analyzer" class="tab-content fade-in hidden space-y-6">
-      <div class="cyber-card rounded-3xl p-6 sm:p-8">
+    <!-- ========================================================================= -->
+    <section id="tab-msg-analyzer" class="tab-content hidden space-y-6">
+      <div class="cyber-card p-5 sm:p-8 bg-slate-900/90">
         <div class="max-w-2xl mb-6">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-2">
             <span>FR5 & FR6 NLP Fraud Engine</span>
           </div>
-          <h2 class="text-2xl font-extrabold text-white">Fraud SUS & KhatsApp Message Analyzer</h2>
+          <h2 class="text-2xl font-extrabold text-white">Fraud SMS & WhatsApp Message Analyzer</h2>
           <p class="text-xs sm:text-sm text-slate-300 mt-1">
             Detect UPI QR code scams, fake delivery cancellation requests, account suspension threats, and OTP phishing messages.
           </p>
@@ -232,28 +511,28 @@
             <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Paste Message / Chat Text</label>
             <textarea id="msgCheckerInput" rows="4" 
                       placeholder="Paste the SMS, WhatsApp text, or customer chat here..."
-                      class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all leading-relaxed"></textarea>
+                      class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-cyan-500 leading-relaxed"></textarea>
           </div>
 
           <div class="flex flex-wrap items-center justify-between gap-4">
             <div class="flex flex-wrap items-center gap-2 text-xs text-slate-400">
               <span class="font-semibold text-slate-300">Preset Scenarios:</span>
-              <button type="button" data-msg-preset="Customer: I want to send you ₹100 tip. Please scan this QR code on WhatsApp and enter PIN to receive money." class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/20 transition-colors">
+              <button type="button" data-msg-preset="Customer: I want to send you ₹200 tip. Please scan this QR code on WhatsApp and enter PIN to receive money." class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/30 transition-colors cursor-pointer">
                 QR Tip Scam
               </button>
-              <button type="button" data-msg-preset="URGENT: Your Uber driver account will be blocked within 2 hours due to KYC audit. Call 8800112233 immediately and share OTP." class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/20 transition-colors">
+              <button type="button" data-msg-preset="URGENT: Your Uber driver account will be blocked within 2 hours due to KYC audit. Call 8800112233 immediately and share OTP." class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/30 transition-colors cursor-pointer">
                 Account Block Threat
               </button>
-              <button type="button" data-msg-preset="Dear partner, your ��1500 festival bonus is waiting! Download zepto_bonus.apk from http://zomato-partner-bonus.xyz to claim." class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/20 transition-colors">
+              <button type="button" data-msg-preset="Dear partner, your ₹4500 festival bonus is waiting! Download zepto_bonus.apk from http://zomato-partner-bonus.xyz to claim." class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/30 transition-colors cursor-pointer">
                 Fake Bonus APK
               </button>
-              <button type="button" data-msg-preset="Hi Ashab, please leave the food packet with the building security guard on Ground Floor. Thank you!" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/20 transition-colors">
+              <button type="button" data-msg-preset="Hi Ashab, please leave the food packet with the building security guard on Ground Floor. Thank you!" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 transition-colors cursor-pointer">
                 Safe Customer Chat
               </button>
             </div>
 
-            <button type="submit" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2">
-              <span>💦 Analyze Message</span>
+            <button type="submit" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2 cursor-pointer">
+              <span>💬 Analyze Message</span>
             </button>
           </div>
         </form>
@@ -262,9 +541,11 @@
       </div>
     </section>
 
+    <!-- ========================================================================= -->
     <!-- TAB 4: THREAT INTELLIGENCE DATABASE (FR6, FR11) -->
-    <section id="tab-threats" class="tab-content fade-in hidden space-y-6">
-      <div class="cyber-card rounded-3xl p-6 sm:p-8">
+    <!-- ========================================================================= -->
+    <section id="tab-threats" class="tab-content hidden space-y-6">
+      <div class="cyber-card p-5 sm:p-8 bg-slate-900/90">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-2">
@@ -273,23 +554,19 @@
             <h2 class="text-2xl font-extrabold text-white">Gig Worker Threat Intelligence Database</h2>
             <p class="text-xs sm:text-sm text-slate-300 mt-1">Live database of verified phishing domains, malicious APKs, fake support numbers, and scam UPI handles.</p>
           </div>
-
-          <button onclick="window.App.switchTab('admin')" class="px-4 py-2 bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 border border-purple-500/30 rounded-xl text-xs font-bold transition-all flex items-center gap-2">
-            <span>👑 Manage Database (Admin)</span>
-          </button>
         </div>
 
         <div class="flex flex-col sm:flex-row items-stretch gap-3 mb-6">
           <div class="relative flex-1">
-            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">�L</span>
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">🔍</span>
             <input type="text" id="threatSearchInput" 
                    oninput="window.App.renderThreatsDatabase(this.value, document.getElementById('threatFilterCategory').value)"
                    placeholder="Search threat indicators (e.g. zomato, .xyz, 8800112233)..." 
-                   class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500" />
+                   class="w-full bg-slate-950 border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyan-500" />
           </div>
           <select id="threatFilterCategory" 
                   onchange="window.App.renderThreatsDatabase(document.getElementById('threatSearchInput').value, this.value)"
-                  class="bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-cyan-500">
+                  class="bg-slate-950 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-cyan-500">
             <option value="all">All Targeted Platforms</option>
             <option value="zomato">Zomato</option>
             <option value="swiggy">Swiggy</option>
@@ -301,7 +578,7 @@
         <div class="overflow-x-auto rounded-2xl border border-slate-800">
           <table class="w-full text-left border-collapse">
             <thead>
-              <tr class="bg-slate-900/80 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
+              <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
                 <th class="py-3 px-4">Threat ID</th>
                 <th class="py-3 px-4">Type</th>
                 <th class="py-3 px-4">Indicator / URL / Phone</th>
@@ -315,10 +592,14 @@
       </div>
     </section>
 
-    <!-- TAB 5: INCIDENT RESPORTING & HISTORY (FR8, FR10) -->
-    <section id="tab-incidents" class="tab-content fade-in hidden space-y-6">
+    <!-- ========================================================================= -->
+    <!-- TAB 5: INCIDENT REPORTING & HISTORY (FR8, FR10) -->
+    <!-- ========================================================================= -->
+    <section id="tab-incidents" class="tab-content hidden space-y-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div class="ljcol-span-5 cyber-card rounded-3xl p-6">
+        
+        <!-- Form -->
+        <div class="lg:col-span-5 cyber-card p-6 bg-slate-900/90">
           <div class="mb-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold mb-2">
               <span>FR8 Incident Logging</span>
@@ -329,24 +610,38 @@
             </p>
           </div>
 
-          <form onsubmit="event.preventDefault(); const inc = window.GigDB.addIncident({ user_id: window.Auth.getCurrentUser()?.user_id || 'USR-102', user_name: window.Auth.getCurrentUser()?.name || 'Rahul Sharma', platform: document.getElementById('incPlatform').value, category: document.getElementById('incCategory').value, description: document.getElementById('incDesc').value, loss_amount: document.getElementById('incLoss').value || '₹0� }); window.App.renderIncidentHistory(); window.App.renderDashboardStats(); window.App.showToast('Incident ' + inc.incident_id + ' registered under review!', 'success'); this.reset();" class="space-y-4 text-xs">
+          <form onsubmit="
+            event.preventDefault();
+            const inc = window.GigDB.addIncident({
+              user_id: window.Auth.getCurrentUser()?.user_id || 'USR-102',
+              user_name: window.Auth.getCurrentUser()?.name || 'Rahul Sharma',
+              platform: document.getElementById('incPlatform').value,
+              category: document.getElementById('incCategory').value,
+              description: document.getElementById('incDesc').value,
+              loss_amount: document.getElementById('incLoss').value || '₹0'
+            });
+            window.App.renderIncidentHistory();
+            window.App.renderDashboardStats();
+            window.App.showToast('Incident ' + inc.incident_id + ' registered under review!', 'success');
+            this.reset();
+          " class="space-y-4 text-xs">
+            
             <div>
               <label class="block font-bold text-slate-300 uppercase tracking-wider mb-1.5">Platform Involved</label>
-              <select id="incPlatform" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500">
+              <select id="incPlatform" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500">
                 <option value="Zomato">Zomato Food Delivery</option>
                 <option value="Swiggy">Swiggy Delivery Partner</option>
                 <option value="Uber">Uber Cab / Auto Driver</option>
                 <option value="Ola">Ola Driver</option>
                 <option value="Zepto / Blinkit">Zepto / Blinkit Quick Commerce</option>
                 <option value="Dunzo / Porter">Dunzo / Porter Logistics</option>
-                <option value="Urban Company">Urban Company Professional</option>
                 <option value="Other">Other Gig Platform</option>
               </select>
             </div>
 
             <div>
               <label class="block font-bold text-slate-300 uppercase tracking-wider mb-1.5">Incident Category</label>
-              <select id="incCategory" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500">
+              <select id="incCategory" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500">
                 <option value="Fake Payment / QR Scam">Fake Payment / QR Code Scam</option>
                 <option value="OTP & Credential Scam">OTP & Credential Extortion Call</option>
                 <option value="Phishing Link">Phishing Website / SMS Link</option>
@@ -357,24 +652,25 @@
 
             <div>
               <label class="block font-bold text-slate-300 uppercase tracking-wider mb-1.5">Financial Loss (If Any)</label>
-              <input type="text" id="incLoss" placeholder="e.g. ��0 (Prevented) or ₹1,200" 
-                     class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500" />
+              <input type="text" id="incLoss" placeholder="e.g. ₹0 (Prevented) or ₹1,200" 
+                     class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-cyan-500" />
             </div>
 
             <div>
               <label class="block font-bold text-slate-300 uppercase tracking-wider mb-1.5">Detailed Description</label>
               <textarea id="incDesc" required rows="3" 
                         placeholder="Explain what the customer/caller asked you to do, phone number, link, etc."
-                        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-cyan-500"></textarea>
+                        class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white focus:outline-none focus:border-cyan-500"></textarea>
             </div>
 
-            <button type="submit" class="w-full py-3 bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold rounded-xl shadow-lg shadow-rose-600/20 transition-all flex items-center justify-center gap-2">
-              <span>🚪 Submit Incident Report</span>
+            <button type="submit" class="w-full py-3 bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold rounded-xl shadow-lg shadow-rose-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <span>🚨 Submit Incident Report</span>
             </button>
           </form>
         </div>
 
-        <div class="lg:col-span-7 cyber-card rounded-3xl p-6">
+        <!-- History -->
+        <div class="lg:col-span-7 cyber-card p-6 bg-slate-900/90">
           <div class="flex items-center justify-between mb-4">
             <div>
               <h3 class="text-xl font-extrabold text-white">My Incident Reports & Tracking</h3>
@@ -386,7 +682,7 @@
           <div class="overflow-x-auto rounded-2xl border border-slate-800">
             <table class="w-full text-left border-collapse">
               <thead>
-                <tr class="bg-slate-900/80 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
+                <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
                   <th class="py-3 px-4">Report ID</th>
                   <th class="py-3 px-4">Category</th>
                   <th class="py-3 px-4">Details & Notes</th>
@@ -398,11 +694,14 @@
             </table>
           </div>
         </div>
+
       </div>
     </section>
-    <!-- TAB6: SECURITY TIPS & AWARENESS HUB (FR9) -->
-    <section id="tab-security-tips" class="tab-content fade-in hidden space-y-6">
-      <div class="cyber-card rounded-3xl p-6 sm:p-8">
+    <!-- ========================================================================= -->
+    <!-- TAB 6: SECURITY TIPS & AWARENESS HUB (FR9) -->
+    <!-- ========================================================================= -->
+    <section id="tab-security-tips" class="tab-content hidden space-y-6">
+      <div class="cyber-card p-6 sm:p-8 bg-slate-900/90">
         <div class="max-w-2xl mb-8">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-2">
             <span>FR9 Security Awareness Hub</span>
@@ -412,14 +711,14 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div class="p-6 rounded-2xl bg-emerald-955/20 border border-emerald-500/30">
+          <div class="p-6 rounded-2xl bg-emerald-950/30 border border-emerald-500/30">
             <div class="flex items-center gap-2 text-emerald-400 font-bold text-base mb-4" data-i18n="dosTitle">
               <span>✅ Gig Worker Security DOs</span>
             </div>
             <ul class="space-y-3 text-xs text-slate-200 leading-relaxed">
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 shrink-0 font-bold">1.</span>
-                <span><strong>kse In-App Support Only:</strong> Always resolve order cancellations and address disputes via the official gig app help section.</span>
+                <span><strong>Use In-App Support Only:</strong> Always resolve order cancellations and address disputes via the official gig app help section.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 shrink-0 font-bold">2.</span>
@@ -427,7 +726,7 @@
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 shrink-0 font-bold">3.</span>
-                <span><strong>Enable App Screen Lock:</strong> Set a biometric fingerprint or PIN lock on your phone and payment apps (GPay, PhonePe, Paytm).</span>
+                <span><strong>Enable App Screen Lock:</strong> Set a biometric fingerprint or PIN lock on your phone and payment apps.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-emerald-400 shrink-0 font-bold">4.</span>
@@ -436,9 +735,9 @@
             </ul>
           </div>
 
-          <div class="p-6 rounded-2xl bg-rose-955/20 border border-rose-500/30">
+          <div class="p-6 rounded-2xl bg-rose-950/30 border border-rose-500/30">
             <div class="flex items-center gap-2 text-rose-400 font-bold text-base mb-4" data-i18n="dontsTitle">
-              <span>❥ Gig Worker Security DONTs</span>
+              <span>🛑 Gig Worker Security DONTs</span>
             </div>
             <ul class="space-y-3 text-xs text-slate-200 leading-relaxed">
               <li class="flex items-start gap-2.5">
@@ -451,7 +750,7 @@
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-rose-400 shrink-0 font-bold">3.</span>
-                <span><strong>Avoid Auto-Accept APKs:</strong> Never download unofficial 'batch grabber' or auto-clicker A>Ks from Telegram or WhatsApp groups.</span>
+                <span><strong>Avoid Auto-Accept APKs:</strong> Never download unofficial 'batch grabber' or auto-clicker APKs from Telegram groups.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-rose-400 shrink-0 font-bold">4.</span>
@@ -461,9 +760,9 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+        <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800">
           <div class="flex items-center gap-3 mb-4">
-            <span class="text-2xl">📩</span>
+            <span class="text-2xl">💡</span>
             <div>
               <h4 class="font-bold text-white text-sm">The Golden Rule of UPI for Gig Workers</h4>
               <p class="text-xs text-cyan-400">Remember this during delivery tips and customer refunds</p>
@@ -471,11 +770,11 @@
           </div>
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-            <div class="p-4 rounded-xl bg-emerald-955/30 border border-emerald-500/30">
+            <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
               <div class="font-bold text-emerald-300 text-sm mb-1">When Receiving Money:</div>
-              <p class="text-slate-300">You only provide your UPI RD / Phone Number. You <strong>NEVERLstrong> scan anything and <strong>NEVER</strong> enter your UPI PIN.</p>
+              <p class="text-slate-300">You only provide your UPI ID / Phone Number. You <strong>NEVER</strong> scan anything and <strong>NEVER</strong> enter your UPI PIN.</p>
             </div>
-            <div class="p-4 rounded-xl bg-rose-955/30 border border-rose-500/30">
+            <div class="p-4 rounded-xl bg-rose-950/40 border border-rose-500/30">
               <div class="font-bold text-rose-300 text-sm mb-1">When Sending Money:</div>
               <p class="text-slate-300">You scan a QR code and enter your UPI PIN. <strong>Entering PIN always deducts money from your account!</strong></p>
             </div>
@@ -484,8 +783,10 @@
       </div>
     </section>
 
+    <!-- ========================================================================= -->
     <!-- TAB 7: SCAM SIMULATOR & QUIZ (Future Scope 5.6) -->
-    <section id="tab-quiz" class="tab-content fade-in hidden space-y-6">
+    <!-- ========================================================================= -->
+    <section id="tab-quiz" class="tab-content hidden space-y-6">
       <div class="max-w-3xl mx-auto space-y-6">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-2">
@@ -501,9 +802,11 @@
       </div>
     </section>
 
-    <!-- TAB 8: ACADEMIC TEST SUITE (Chapter 5.3) -->
-    <section id="tab-test-suite" class="tab-content fade-in hidden space-y-6">
-      <div class="cyber-card rounded-3xl p-6 sm:p-8">
+    <!-- ========================================================================= -->
+    <!-- TAB 8: ACADEMIC TEST SUITE (Chapter 5.3 TC01-TC08) -->
+    <!-- ========================================================================= -->
+    <section id="tab-test-suite" class="tab-content hidden space-y-6">
+      <div class="cyber-card p-6 sm:p-8 bg-slate-900/90">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold mb-2">
@@ -515,7 +818,7 @@
             </p>
           </div>
 
-          <button id="btnRunTests" onclick="window.TestSuite.runAllTests()" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-955 font-extrabold text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
+          <button id="btnRunTests" onclick="window.TestSuite.runAllTests()" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 font-extrabold text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2 cursor-pointer">
             <span>▶ Run Full System Test Suite</span>
           </button>
         </div>
@@ -527,7 +830,7 @@
         <div class="overflow-x-auto rounded-2xl border border-slate-800">
           <table class="w-full text-left border-collapse">
             <thead>
-              <tr class="bg-slate-900/80 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
+              <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
                 <th class="py-3 px-4">Test ID</th>
                 <th class="py-3 px-4">Test Case Name</th>
                 <th class="py-3 px-4">Test Input</th>
@@ -539,7 +842,7 @@
             <tbody id="testResultsContainer" class="text-xs divide-y divide-slate-800/60">
               <tr>
                 <td colspan="6" class="py-8 text-center text-slate-400">
-                  Click <strong class="text-amber-400">"Run Full System Test Suite"</strong> to execute all 8 formal test cases live for your viva examination.
+                  Click <strong class="text-amber-400">"▶ Run Full System Test Suite"</strong> to execute all 8 formal test cases live for your viva examination.
                 </td>
               </tr>
             </tbody>
@@ -547,9 +850,12 @@
         </div>
       </div>
     </section>
+
+    <!-- ========================================================================= -->
     <!-- TAB 9: ADMINISTRATOR MANAGEMENT PORTAL (FR11) -->
-    <section id="tab-admin" class="tab-content fade-in hidden space-y-6">
-      <div class="cyber-card rounded-3xl p-6 sm:p-8 border-purple-500/30">
+    <!-- ========================================================================= -->
+    <section id="tab-admin" class="tab-content hidden space-y-6">
+      <div class="cyber-card p-6 sm:p-8 border-purple-500/30 bg-slate-900/90">
         <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold mb-2">
@@ -559,55 +865,55 @@
             <p class="text-xs sm:text-sm text-slate-300 mt-1">Logged in as: <strong>Ashab ul haq Ansari (Chief Security Administrator)</strong></p>
           </div>
 
-          <button onclick="window.Auth.switchRole('worker'); window.App.updateUserUI(); window.App.switchTab('dashboard');" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl transition-all">
+          <button onclick="window.Auth.switchRole('worker'); window.App.updateUserUI(); window.App.switchTab('dashboard'); window.App.showToast('Switched to Worker View', 'info')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl transition-all cursor-pointer">
             ← Switch to Worker View
           </button>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
             <div class="text-xs font-bold text-slate-400 uppercase">Logged Threats</div>
             <div class="text-2xl font-black text-rose-400 mt-1" id="adminStatThreats">6</div>
           </div>
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
             <div class="text-xs font-bold text-slate-400 uppercase">Submitted Incidents</div>
             <div class="text-2xl font-black text-amber-400 mt-1" id="adminStatIncidents">3</div>
           </div>
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="text-xs font-bold text-slate-300 uppercase">Total Users</div>
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+            <div class="text-xs font-bold text-slate-400 uppercase">Total Users</div>
             <div class="text-2xl font-black text-cyan-400 mt-1" id="adminStatUsers">3</div>
           </div>
-          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
             <div class="text-xs font-bold text-slate-400 uppercase">Total Scans</div>
             <div class="text-2xl font-black text-emerald-400 mt-1" id="adminStatChecks">14</div>
           </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <h4 class="text-sm font-bold text-white mb-3">❛ Add New Threat Indicator to DB</h4>
+          <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+            <h4 class="text-sm font-bold text-white mb-3">➕ Add New Threat Indicator to DB</h4>
             <form onsubmit="event.preventDefault(); window.AdminPortal.addNewThreat({ threat_type: document.getElementById('admThreatType').value, indicator: document.getElementById('admThreatInd').value, risk_level: document.getElementById('admThreatRisk').value, targeted_platform: document.getElementById('admThreatPlat').value, description: document.getElementById('admThreatDesc').value }); this.reset();" class="space-y-3 text-xs">
               <div class="grid grid-cols-2 gap-3">
                 <select id="admThreatType" class="bg-slate-900 border border-slate-700 rounded-lg p-2 text-white">
                   <option value="Phishing Domain">Phishing Domain</option>
                   <option value="QR Code Scam">QR Code Payment Scam</option>
                   <option value="Fake Support Call">Fake Support Call</option>
-                  <option value="Malicious APK">Malicious A>K</option>
+                  <option value="Malicious APK">Malicious APK</option>
                 </select>
                 <select id="admThreatRisk" class="bg-slate-900 border border-slate-700 rounded-lg p-2 text-white">
                   <option value="High Risk">High Risk</option>
                   <option value="Suspicious">Suspicious</option>
                 </select>
               </div>
-              <input type="text" id='admThreatInd' required placeholder="Indicator (e.g. zomato-fake-bonus.site)" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white font-mono" />
+              <input type="text" id="admThreatInd" required placeholder="Indicator (e.g. zomato-fake-bonus.site)" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white font-mono" />
               <input type="text" id="admThreatPlat" placeholder="Targeted Platform (e.g. Zomato, Swiggy, Uber)" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white" />
               <input type="text" id="admThreatDesc" placeholder="Description of scam modus operandi" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white" />
-              <button type="submit" class="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg transition-all">Add Threat Indicator</button>
+              <button type="submit" class="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg transition-all cursor-pointer">Add Threat Indicator</button>
             </form>
           </div>
 
-          <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <h4 class="text-sm font-bold text-white mb-3">📔 Broadcast Security Alert to Workers</h4>
+          <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+            <h4 class="text-sm font-bold text-white mb-3">📢 Broadcast Security Alert to Workers</h4>
             <form onsubmit="event.preventDefault(); window.AdminPortal.broadcastAlert({ title: document.getElementById('admAlertTitle').value, message: document.getElementById('admAlertMsg').value, severity: document.getElementById('admAlertSev').value, platform: document.getElementById('admAlertPlat').value }); this.reset();" class="space-y-3 text-xs">
               <div class="grid grid-cols-2 gap-3">
                 <select id="admAlertSev" class="bg-slate-900 border border-slate-700 rounded-lg p-2 text-white">
@@ -619,17 +925,17 @@
               </div>
               <input type="text" id="admAlertTitle" required placeholder="Alert Headline" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white" />
               <textarea id="admAlertMsg" required rows="2" placeholder="Detailed security warning text..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white"></textarea>
-              <button type="submit" class="w-full py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 text-white font-bold rounded-lg transition-all">Broadcast Live Advisory</button>
+              <button type="submit" class="w-full py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 text-white font-bold rounded-lg transition-all cursor-pointer">Broadcast Live Advisory</button>
             </form>
           </div>
         </div>
 
         <div class="mb-8">
-          <h4 class="text-sm font-bold text-white mb-3">🕹 Incident Review & Resolution Queue</h4>
+          <h4 class="text-sm font-bold text-white mb-3">🛎️ Incident Review & Resolution Queue</h4>
           <div class="overflow-x-auto rounded-2xl border border-slate-800">
             <table class="w-full text-left border-collapse">
               <thead>
-                <tr class="bg-slate-900 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
+                <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
                   <th class="py-3 px-4">ID</th>
                   <th class="py-3 px-4">Worker & Platform</th>
                   <th class="py-3 px-4">Category & Details</th>
@@ -644,11 +950,11 @@
         </div>
 
         <div class="mb-8">
-          <h4 class="text-sm font-bold text-white mb-3">🔄 Threat Database Indicators</h4>
+          <h4 class="text-sm font-bold text-white mb-3">🎯 Threat Database Indicators</h4>
           <div class="overflow-x-auto rounded-2xl border border-slate-800">
             <table class="w-full text-left border-collapse">
               <thead>
-                <tr class="bg-slate-900 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
+                <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
                   <th class="py-3 px-4">Threat ID</th>
                   <th class="py-3 px-4">Indicator & Description</th>
                   <th class="py-3 px-4">Risk Level</th>
@@ -662,11 +968,11 @@
         </div>
 
         <div>
-          <h4 class="text-sm font-bold text-white mb-3">💥 Registered System Users</h4>
+          <h4 class="text-sm font-bold text-white mb-3">👥 Registered System Users</h4>
           <div class="overflow-x-auto rounded-2xl border border-slate-800">
             <table class="w-full text-left border-collapse">
               <thead>
-                <tr class="bg-slate-900 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
+                <tr class="bg-slate-950 border-b border-slate-800 text-slate-400 text-xs uppercase font-bold tracking-wider">
                   <th class="py-3 px-4">User ID</th>
                   <th class="py-3 px-4">Full Name</th>
                   <th class="py-3 px-4">Email</th>
@@ -678,11 +984,15 @@
             </table>
           </div>
         </div>
+
       </div>
     </section>
-    <!-- TAB 10: UML &\npArchitecture -->
-    <section id="tab-docs" class="tab-content fade-in hidden space-y-6">
-      <div class="cyber-card rounded-3xl p-6 sm:p-8">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 10: UML & SYSTEM ARCHITECTURE DOCS -->
+    <!-- ========================================================================= -->
+    <section id="tab-docs" class="tab-content hidden space-y-6">
+      <div class="cyber-card p-6 sm:p-8 bg-slate-900/90">
         <div class="max-w-2xl mb-8">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold mb-2">
             <span>Bhavna Trust Degree College Project Report Reference</span>
@@ -693,64 +1003,106 @@
           </p>
         </div>
 
-        <div class="mb-8 p-6 rounded-2xl bg-slate-900 border border-slate-800">
+        <div class="mb-8 p-6 rounded-2xl bg-slate-950 border border-slate-800">
           <h3 class="text-sm font-bold uppercase tracking-wider text-cyan-400 mb-3">4.1 Three-Tier System Architecture</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-xs">
-            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
-              <span class="text-2xl mb-2 block">📩</span>
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-2xl mb-2 block">📱</span>
               <div class="font-bold text-white text-sm">1. Presentation Layer</div>
               <p class="text-slate-400 mt-1">Responsive Web App, Mobile Scanner UI, Multilingual support (EN, HI, MR, TA), Real-Time Notifications.</p>
             </div>
-            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
-              <span class="text-2xl mb-2 block">☞��<+����7���F�b6�73�&f��B�&��BFW�B�v��FRFW�B�6�#�"�'W6��W72��v�2��W#��F�c��6�73�'FW�B�6�FR�C�B�#�F�&VB�Ǘ6�2�WW&�7F�2V�v��R�G��7VGF��r�����vǗ�fƖFF�"���4�26�76�f�W"�$U5B�6��G&���W"������F�c��F�b6�73�'�B&�V�FVB׆�&r�6�FRӓS&�&FW"&�&FW"�6�FRӃ#��7�6�73�'FW�B�'���"�"&��6�#�	�HC��7���F�b6�73�&f��B�&��BFW�B�v��FRFW�B�6�#�2�FF��W#��F�c��6�73�'FW�B�6�FR�C�B�#�5ƗFR�W'6�7FV�B7F�&S�U4U"�4T5U$�E��4�T4����4�DT�B�D�$TB��B4T5U$�E���U%BV�F�F�W2������F�c���F�c���F�cࠢ�F�b6�73�'76Rג�b#�ƃ26�73�'FW�B�6�f��B�&��BWW&66RG&6���r�v�FW"FW�B�v��FR#�2�RT��7�7FV���FV�3���3ࠢ�F�b6�73�'�R&�V�FVB�'��&r�6�FRӓ&�&FW"&�&FW"�6�FRӃ#��F�b6�73�'FW�Bׇ2f��B�&��BFW�B�7���C�"�"#�6WVV�6RF�w&�(	2U$�F�&VB�Ǘ6�2f��s��F�c��&R6�73�&f��B�����FW�Bճ��FW�B�6�FR�3�VF��r�&V��VB�fW&f��rׂ�WF�&r�6�FRӓS�B&�V�FVB��r#ࠤv�rv�&�W"g&��FV�BT�&6�V�B$U5B�F�&VBV�v��RFF&6R�5ƗFR��������������V�FW"U$����������������"��5B�6�V6����������������2�Wf�VFR���������������B�VW'�F�&VB��������������R����v��F6��������������b�&�6�66�&R��������������r�6fR6�V6����������������������������������������4��&W7V�B��������������6��r&�6�����������&S���F�cࠢ�F�b6�73�'�R&�V�FVB�'��&r�6�FRӓ&�&FW"&�&FW"�6�FRӃ#��F�b6�73�'FW�Bׇ2f��B�&��BFW�B�7���C�"�"#�U$D�w&�bFF&6R66�V��6�FW"B�B���F�c��F�b6�73�&w&�Bw&�B�6��2�6Ӧw&�B�6��2�"�s�w&�B�6��2�2v�2f��B�����FW�Bճ��#��F�b6�73�'�2&r�6�FRӓS&�V�FVB&�&FW"&�&FW"�6�FRӃ#��7G&��r6�73�'FW�B�7���3#�U4U#��7G&��s��'#��W6W%��B����'#����S�'#��V����V�VR��'#��77v�&E��6��'#��&��R�v�&�W"�F֖��'#���Ff�&Т��F�c��F�b6�73�'�2&r�6�FRӓS&�V�FVB&�&FW"&�&FW"�6�FRӃ#��7G&��r6�73�'FW�B�7���3#�4T5U$�E��4�T4���7G&�s��'#��6�V6���B����'#��W6W%��B�d���'#����WE�G�R�U$���6r��'#����WE�FF�'#��&�6���WfV��'#��&W7V�@���F�c��F�b6�73�'�2&r�6�FRӓS&�V�FVB&�&FW"&�&FW"�6�FRӃ#��7G&��r6�73�'FW�B�7���3#��4�DT�C��7G&��s��'#����6�FV�E��B����'#��W6W%��B�d���'#��6FVv�'��'#��FW67&�F����'#����75���V�C�'#��7FGW0���F�c���F�c���F�cࠢ�F�b6�73�'�R&�V�FVB�'��&r�6�FRӓ&�&FW"&�&FW"�6�FRӃ#��F�b6�73�'FW�Bׇ2f��B�&��BFW�B�7���C�"�"#�B�R�7G'V7GW&R7V6�f�6F�����F�c��F�b6�73�&w&�Bw&�B�6��2��C�w&�B�6��2�"v�"FW�Bճ��f��B�����FW�B�6�FR�3#��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�V�W&�B�Cf��B�&��B#��5C��7�����WF��&Vv�7FW#��F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�V�W&�B�Cf��B�&��B#��5C��7�����WF����v����F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�V�W&�B�Cf��B�&��B#��5C��7�����6V7W&�G��6�V6��W&���F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�V�W&�B�Cf��B�&��B#��5C��7�����6V7W&�G���Ǘ�R��W76vS��F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�7���Cf��B�&��B#�tUD��7�����6V7W&�G����7F�'���F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�V�W&�B�Cf��B�&��B#��5C��7�������6�FV�G2�&W�'C��F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�7���Cf��B�&��B#�tUC��7�������6�FV�G3��F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�7���Cf��B�&��B#�tUD��7������W'G3��F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�W'�R�Cf��B�&��B#�DԔ���7�����F֖��F�&VG3��F�c��F�b6�73�'�"&r�6�FRӓS&�V�FVB&�&FW"�6�FRӃ#��7�6�73�'FW�B�W'�R�Cf��B�&��B#�DԔ���7�����F֖��&W�'G3��F�c���F�c���F�c���F�c���F�c���6V7F���ࠢ�����ࠢ���d��DU"����f��FW"6�73�&&r�6�FRӓSR&�&FW"�B&�&FW"�6�FRӃ���b��BFW�Bׇ2FW�B�6�FR�C�B�"#��F�b6�73�&���r�w��ׂ�WF�f�W�f�W��w&�FV�2�6V�FW"�W7F�g��&WGvVV�v�B#��F�c��7�6�73�&f��B�&��BFW�B�6�FR�##�v�u6V7W&R7�7FV���7��(	B7�&W"6V7W&�G�bg&VB&�FV7F���f�"v�rv�&�W'0��F�b6�73�'FW�Bճ��FW�B�6�FR�S�B��R#�&�f�G'W7B6���VvR(
-�6FV֖2&��V7B'�F��W6�6VWF�&���"�62�52���F�c���F�c��F�b6�73�&f�W��FV�2�6V�FW"v�BFW�B�6�FR�S#���&Vc�"2"��6Ɩ6��'v��F�r��7v�F6�F"�vF�72r��&WGW&�f�6S�"6�73�&��fW#�FW�B�7���C#�&6��FV7GW&S����7��(
-���7����&Vc�"2"��6Ɩ6��'v��F�r��7v�F6�F"�wFW7B�7V�FRr��&WGW&�f�6S�"6�73�&��fW#�FW�B�7���C#�FW7B66W2�D3�������7��(
-���7����&Vc�'FVã�3"6�73�'FW�B�&�6R�Cf��B�&��B��fW#�V�FW&Ɩ�R#�7�&W"�V�Ɩ�S��3�����F�c���F�c���f��FW#ࠢ�����D�2����F�b�C�&WF���F�"6�73�&f��VB��6WB���S&r�&�6��s&6�G&��&�W"�6�f�W��FV�2�6V�FW"�W7F�g��6V�FW"�B��FFV�#��F�b6�73�&&r�6�FRӓ&�&FW"&�&FW"�6�FRӃ&�V�FVB�7���b6ӧӂ���r��Br�gV��6�F�r�'��&V�F�fR#��'WGF����6Ɩ6��'v��F�p��6��6TWF���F�"6�73�&'6��WFRF��R&�v�B�RFW�B�6�FR�C��fW#�FW�B�v��FRFW�B��r#�)����'WGF��ࠢ�F�b�C�&WF���v��f�&�#��F�b6�73�&f�W��FV�2�6V�FW"v�"�"�"#��7�6�73�'FW�B�'��#�	�Y��7��ƃ26�73�'FW�B׆�f��B�&��BFW�B�v��FR#���v��F�v�u6V7W&S���3���F�c��6�73�'FW�Bׇ2FW�B�6�FR�C�"�b#�V�FW"��W"v�&�W"�"F֖�7G&F�"7&VFV�F��2���ࠢ�f�&���7V&֗C�&WfV�B�&WfV�DFVfV�B���6��7BV����F�7V�V�B�vWDV�V�V�D'��B�v��v��V���r��f�VS�6��7B72�F�7V�V�B�vWDV�V�V�D'��B�v��v��72r��f�VS�6��7B&W2�v��F�r�WF����v��V����72���b�&W2�7V66W72��v��F�r��WFFUW6W%T����v��F�r��&V�FW$F6�&�&E7FG2���v��F�r��6��6TWF���F��window.App.showToast('Welcome back, ' + res.user.name + '!', 'success'); } else { wv��F�r��6��uF�7B�&W2��W76vR�vW'&�"r���"6�73�'76Rג�BFW�Bׇ2#��F�c���&V�6�73�&&��6�f��B�&��BFW�B�6�FR�3�"�#�V���FG&W73���&V��Ɩ�WBG�S�&V���"�C�&��v��V���"&WV�&VBf�VS�'&�V��&�FW$v����6��"6�73�'r�gV��&r�6�FRӓS&�&FW"&�&FW"�6�FR�s&�V�FVB׆��2FW�B�v��FRf�7W3��WFƖ�R����Rf�7W3�&�&FW"�7���S"����F�c��F�c���&V�6�73�&&��6�f��B�&��BFW�B�6�FR�3�"�#�77v�&C���&V��Ɩ�WBG�S�'77v�&B"�C�&��v��72"&WV�&VBf�VS�'77v�&C#2"6�73�'r�gV��&r�6�FRӓS&�&FW"&�&FW"�6�FR�s&�V�FVB׆��2FW�B�v��FRf�7W3��WFƖ�R����Rf�7W3�&�&FW"�7���S"����F�cࠢ�'WGF��G�S�'7V&֗B"6�73�'r�gV����2&r�w&F�V�B�F��"g&���7���SF��&�VR�c��fW#�g&���7���CFW�B�v��FRf��B�&��B&�V�FVB׆�6�F�r��r6�F�r�7���S�#G&�6�F������#�6V7W&R��v����'WGF�����f�&�ࠢ�F�b6�73�&�B�BB�B&�&FW"�B&�&FW"�6�FRӃFW�B�6V�FW"FW�Bׇ2FW�B�6�FR�C#��7���VVB�66�V�C���7���'WGF����6Ɩ6��'v��F�r���V�WF���Fw&Vv�7FW"r�"6�73�'FW�B�7���Cf��B�&��B��fW#�V�FW&Ɩ�R#�&Vv�7FW"2v�rv�&�W#��'WGF�����F�c���F�cࠢ�F�b�C�&WF�&Vv�7FW$f�&�"6�73�&��FFV�#��F�b6�73�&f�W��FV�2�6V�FW"v�"�"�"#��7�6�73�'FW�B�'��#�	�8���7��ƃ26�73�'FW�B׆�f��B�&��BFW�B�v��FR#�7&VFRv�rv�&�W"66�V�C���3���F�c��6�73�'FW�Bׇ2FW�B�6�FR�C�"�b#�&Vv�7FW"F�66W72g&VBFWFV7F����B&W�'B66���6�FV�G2���ࠢ�f�&���7V&֗C�&WfV�B�&WfV�DFVfV�B���6��7B��R�F�7V�V�B�vWDV�V�V�D'��B�w&Vt��Rr��f�VS�6��7BV����F�7V�V�B�vWDV�V�V�D'��B�w&VtV���r��f�VS�6��7B77v�&B�F�7V�V�B�vWDV�V�V�D'��B�w&Vu72r��f�VS�6��7B�Ff�&��F�7V�V�B�vWDV�V�V�D'��B�w&Vu�Ff�&�r��f�VS�6��7B&W2�v��F�r�WF��&Vv�7FW"����R�V����77v�&B��Ff�&��&��S�wv�&�W"rғ��b�&W2�7V66W72��v��F�r��WFFUW6W%T����v��F�r��&V�FW$F6�&�&E7FG2���v��F�r��6��6TWF���F��window.App.showToast('Account registered successfully for ' + name + '!', 'success'); } else { window.App.showToast(res.message, 'error'); }" class="space-y-3 text-xs">
-          <div>
-            <label class="block font-bold text-slate-300 mb-1">Full Name</label>
-            <input type="text" id="regName" required placeholder="e.g. Ramesh Kumar" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500" />
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-2xl mb-2 block">⚙️</span>
+              <div class="font-bold text-white text-sm">2. Business Logic Layer</div>
+              <p class="text-slate-400 mt-1">Threat Analysis Heuristic Engine, Typosquatting / Homoglyph Validator, NLP SMS Classifier, REST API Controller.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-2xl mb-2 block">🗄️</span>
+              <div class="font-bold text-white text-sm">3. Data Layer</div>
+              <p class="text-slate-400 mt-1">SQLite / Persistent Store: USER, SECURITY_CHECK, INCIDENT, THREAT, and SECURITY_ALERT entities.</p>
+            </div>
           </div>
-          <div>
-            <label class="block font-bold text-slate-300 mb-1">Email Address</label>
-            <input type="email" id="regEmail" required placeholder="ramesh@gmail.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500" />
-          </div>
-          <div>
-            <label class="block font-bold text-slate-300 mb-1">Password</label>
-            <input type="password" id="regPass" required placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500" />
-          </div>
-          <div>
-            <label class="block font-bold text-slate-300 mb-1">Primary Gig Platform</label>
-            <select id="regPlatform" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-cyan-500">
-              <option value="Zomato Delivery Partner">Zomato Delivery Partner</option>
-              <option value="Swiggy Delivery Partner">Swiggy Delivery Partner</option>
-              <option value="Uber Driver">Uber Driver</option>
-              <option value="Ola Driver">Ola Driver</option>
-              <option value="Zepto / Blinkit Rider">Zepto / Blinkit Rider</option>
-              <option value="Freelancer / Other">Freelancer / Other</option>
-            </select>
-          </div>
-
-          <button type="submit" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 text-white font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition-all">
-            Complete Registration
-          </button>
-        </form>
-
-        <div class="mt-4 pt-4 border-t border-slate-800 text-center text-xs text-slate-400">
-          <span>Already have an account? </span>
-          <button onclick="window.App.openAuthModal('login')" class="text-cyan-400 font-bold hover:underline">Log In</button>
         </div>
-      </div>
 
+        <div class="space-y-6">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-white">3.5 UML System Models</h3>
+
+          <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+            <div class="text-xs font-bold text-cyan-400 mb-2">Sequence Diagram — URL Threat Analysis Flow</div>
+            <pre class="font-mono text-[11px] text-slate-300 leading-relaxed overflow-x-auto bg-slate-900 p-4 rounded-lg">
+Gig Worker        Frontend UI         Backend REST API      Threat Engine         Database (SQLite)
+    |                  |                     |                    |                       |
+    |---- 1. Enter URL --->|                     |                    |                       |
+    |                  |---- 2. POST /check --->|                    |                       |
+    |                  |                     |---- 3. Evaluate ---->|                       |
+    |                  |                     |                    |--- 4. Query Threat --->|
+    |                  |                     |                    |&lt;-- 5. Known Match ----|
+    |                  |                     |&lt;---- 6. Risk Score ---|                       |
+    |                  |                     |---- 7. Save Check ------------------------->|
+    |                  |&lt;---- 8. JSON Result ---|                                             |
+    |&lt;---- 9. Show Risk ---|                     |                                             |
+            </pre>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+            <div class="text-xs font-bold text-cyan-400 mb-2">ER Diagram & Database Schema (Chapter 4.4)</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 font-mono text-[11px]">
+              <div class="p-3 bg-slate-900 rounded border border-slate-800">
+                <strong class="text-cyan-300">USER</strong><br>
+                - user_id (PK)<br>
+                - name<br>
+                - email (Unique)<br>
+                - password_hash<br>
+                - role (worker/admin)<br>
+                - platform
+              </div>
+              <div class="p-3 bg-slate-900 rounded border border-slate-800">
+                <strong class="text-cyan-300">SECURITY_CHECK</strong><br>
+                - check_id (PK)<br>
+                - user_id (FK)<br>
+                - input_type (URL/Msg)<br>
+                - input_data<br>
+                - risk_level<br>
+                - result
+              </div>
+              <div class="p-3 bg-slate-900 rounded border border-slate-800">
+                <strong class="text-cyan-300">INCIDENT</strong><br>
+                - incident_id (PK)<br>
+                - user_id (FK)<br>
+                - category<br>
+                - description<br>
+                - loss_amount<br>
+                - status
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 py-6 px-4 text-xs text-slate-400 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <div>
+        <span class="font-bold text-slate-200">GigSecure System</span> — Cyber Security & Fraud Protection for Gig Workers
+        <div class="text-[11px] text-slate-500 mt-0.5">Bhavna Trust Degree College • Academic Project by Ashab ul haq Ansari (B.Sc. CS)</div>
+      </div>
+      <div class="flex items-center gap-4 text-slate-500">
+        <a href="tel:1930" class="text-rose-400 font-bold hover:underline">National Cyber Helpline: 1930</a>
+      </div>
     </div>
-  </div>
+  </footer>
 
   <!-- ADMIN INCIDENT ACTION MODAL -->
   <div id="incidentActionModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative text-xs">
-      <button onclick="document.getElementById('incidentActionModal').classList.add('hidden')" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg">�}_</button>
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-2xl relative text-xs">
+      <button onclick="document.getElementById('incidentActionModal').classList.add('hidden')" class="absolute top-5 right-5 text-slate-400 hover:text-white text-lg cursor-pointer">✕</button>
 
       <div class="flex items-center gap-2 mb-2">
-        <span class="text-2xl">🕹 </span>
+        <span class="text-2xl">🛎️</span>
         <h3 class="text-lg font-bold text-white">Review Incident Report (<span id="modalIncId" class="text-cyan-400 font-mono"></span>)</h3>
       </div>
       
@@ -776,7 +1128,7 @@
           <textarea id="modalIncNote" rows="3" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white"></textarea>
         </div>
 
-        <button onclick="window.AdminPortal.saveIncidentAction()" class="w-full py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-all">
+        <button onclick="window.AdminPortal.saveIncidentAction()" class="w-full py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-all cursor-pointer">
           Save Status & Notify Worker
         </button>
       </div>
@@ -786,7 +1138,7 @@
   <!-- TOAST NOTIFICATION CONTAINER -->
   <div id="toastNotification" class="hidden"></div>
 
-    <!-- JAVASCRIPT BUNDLES -->
+  <!-- JAVASCRIPT BUNDLES IN STRICT EXECUTION ORDER -->
   <script src="js/i18n.js"></script>
   <script src="js/database.js"></script>
   <script src="js/scanner.js"></script>
